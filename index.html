@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع ثائر الحاج</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        .navbar-logo a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar-links li {
+            margin-left: 20px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            transition: background 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            background-color: #ff6600; /* Change color on hover */
+            border-radius: 4px;
+        }
+
+        /* Mobile Menu Toggle */
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.4s;
+        }
+
+        /* Responsive Design for Smaller Screens */
+        @media screen and (max-width: 768px) {
+            .navbar-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .navbar-links.active {
+                display: flex;
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-me, .my-style, .contact {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <a href="#">Logo</a>
+        </div>
+        <ul class="navbar-links">
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('login')">Login</a></li>
+            <li><a href="#" onclick="showSection('shop')">Shop</a></li>
+            <li><a href="#" onclick="showSection('about')">About Me</a></li>
+        </ul>
+        <div class="navbar-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <div id="home" class="section">
+        <h1 style="text-align:center">REAL MADRID STORE</h1>
+        <img style="display:block; margin:auto" src="صور/شعار ريال مدريد.jpg" />
+    </div>
+
+    <div id="login" class="section" style="display:none;">
+        <div class="signup-form">
+            <h2>إنشاء حساب جديد</h2>
+            <form action="#" method="POST">
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" name="name" placeholder="أدخل اسمك" required>
+                <label for="email">البريد الإلكتروني:</label>
+                <input type="email" id="email" name="email" placeholder="أدخل بريدك الإلكتروني" required>
+                <label for="password">كلمة المرور:</label>
+                <input type="password" id="password" name="password" placeholder="أدخل كلمة المرور" required>
+                <label for="confirm-password">تأكيد كلمة المرور:</label>
+                <input type="password" id="confirm-password" name="confirm-password" placeholder="أدخل تأكيد كلمة المرور" required>
+                <input type="submit" value="إنشاء الحساب">
+            </form>
+            <div class="login-link">
+                <p>لديك حساب بالفعل؟ <a href="#">تسجيل الدخول</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="shop" class="section" style="display:none;">
+        <h2>المتجر</h2>
+        <p>هنا يمكنك العثور على منتجاتنا المميزة!</p>
+    </div>
+
+    <div id="about" class="section" style="display:none;">
+        <section class="about-me">
+            <h2>من أنا؟</h2>
+            <p>أنا ثائر الحاج، مواليد 2003. أدرس هندسة الحاسوب، وأنا شغوف بالتكنولوجيا والتطوير. أحب أن أتعلم أشياء جديدة وأستمتع بوقتي في استكشاف مجالات البرمجة والتصميم.</p>
+            <p>لدي موقع شخصي حيث أشارك أفكاري ومشاريعي، ويمكنكم متابعتي هنا.</p>
+        </section>
+
+        <section class="my-style">
+            <h2>أسلوبي</h2>
+            <p>أحب ارتداء ملابس فريق ريال مدريد، حيث إنني مشجع كبير لهذا الفريق. تعكس ملابسي حبي لكرة القدم وتفانيي في دعم فريقي المفضل.</p>
+        </section>
+
+        <section class="contact">
+            <h2>تواصل معي</h2>
+            <p>إذا كان لديك أي استفسارات أو ترغب في التواصل معي، يمكنك مراسلتي عبر:</p>
+            <ul>
+                <li> <a href="mailto:thaerhejjawi16@gmail.com">thaerhejjawi16@gmail.com</a><strong>: البريد الإلكتروني </strong></li>
+                <li> <a class="btn btn-dark" href="https://wa.me/962787063909" target="_blank"> واتساب </a><strong> : واتساب</strong></li>
+                <li> <a class="btn btn-dark" href="https://www.facebook.com/thaerhejjaw?locale=ar_AR" target="_blank">صفحة الفيسبوك</a><strong> : فيسبوك</strong></li>
+                <li> <a class="btn btn-dark" href="https://www.instagram.com/thaer7ejjawi/" target="_blank">حساب انستغرام</a><strong> : انستاغرام</strong></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة &copy; 2024 - ثائر الحاج</p>
+    </footer>
+
+    <script>
+        // Toggle mobile menu for smaller screens
+        const menu = document.querySelector('#mobile-menu');
+        const links = document.querySelector('.navbar-links');
+
+        menu.addEventListener('click', function () {
+            links.classList.toggle('active');
+        });
+
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            // Show the selected section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+    </script>
+</body>
+</html>
